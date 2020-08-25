@@ -1,4 +1,6 @@
 import React from "react"; //react 라이브러리를 import.
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
 
 //Customer 클래스 정의
 //React.Component 는 일종의 라이브러리이자 클래스
@@ -6,43 +8,16 @@ class Customer extends React.Component {
   render() {
     //props는 기본적으로 React.Component에 내장되어있어 this.props로 사용.
     return (
-      <div>
-        <CustomerProfile
-          id={this.props.id}
-          image={this.props.image}
-          name={this.props.name}
-        />
-        <CustomerInfo
-          birthday={this.props.birthday}
-          gender={this.props.gender}
-          job={this.props.job}
-        />
-      </div>
-    );
-  }
-}
-
-class CustomerProfile extends React.Component {
-  render() {
-    return (
-      <div>
-        <img src={this.props.image} alt="profile" />
-        <h2>
-          {this.props.name}({this.props.id})
-        </h2>
-      </div>
-    );
-  }
-}
-
-class CustomerInfo extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>{this.props.name}</p>
-        <p>{this.props.gender}</p>
-        <p>{this.props.birthday}</p>
-      </div>
+      <TableRow>
+        <TableCell>{this.props.id}</TableCell>
+        <TableCell>
+          <img src={this.props.image} alt="profile"></img>
+        </TableCell>
+        <TableCell>{this.props.name}</TableCell>
+        <TableCell>{this.props.birthday}</TableCell>
+        <TableCell>{this.props.gender}</TableCell>
+        <TableCell>{this.props.job}</TableCell>
+      </TableRow>
     );
   }
 }
